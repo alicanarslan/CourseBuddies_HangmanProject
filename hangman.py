@@ -1,8 +1,19 @@
 import random
 import pictures
+import words
+print(" 1 : Hayvanlar\n 2 : Şehirler \n 3 : Meyveler \n 4 : Sebzeler")
 hngmn_rsmler = pictures.Hangman_resimler
-kelime_listesi = "Adapte,Adalet,Alerji,Aralık".split(",") # Kelime listesi.
-secilen_kelime = random.choice(kelime_listesi).lower() # Kelime seçip tüm harfleri kücültüyor.
+def kategori(indx):
+    if   indx == "1":
+        kelime_listesi = words.Hayvanlar
+    elif indx == "2":
+        kelime_listesi = words.Şehirler
+    elif indx == "3":
+        kelime_listesi = words.Meyveler
+    else: 
+        kelime_listesi = words.Sebzeler
+    return kelime_listesi
+secilen_kelime = random.choice(kategori(input("Lütfen Kategori Seçimi Yapınız : "))).lower() # Kelime seçip tüm harfleri kücültüyor.
 hak = 6
 görüntü = "_" * len(secilen_kelime) # Kelimenin uzunluguna göre _ koyuyor.
 for x in range(0,len(secilen_kelime)-1):
