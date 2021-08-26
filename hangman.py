@@ -43,6 +43,9 @@ for x in range(0,len(secilen_kelime)-1):
     while hak > 0:
         print(Hangman_resimler[hak])
         tahmin = input("Bir harf tahmin et : ").lower() # Harf alıp kücültüyor.
+        while len(tahmin) >= 2 or tahmin.isalpha() == False:
+            print("Lütfen sadece tek bir harf girisi yapınız !")
+            tahmin = input("Bir harf tahmin et : ").lower()
         n = -1
         k = 0
         for harf in secilen_kelime :
