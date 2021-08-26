@@ -1,19 +1,24 @@
 import random
 import pictures
 import words
-print(" 1 : Hayvanlar\n 2 : Şehirler \n 3 : Meyveler \n 4 : Sebzeler")
+print(" 1 : Hayvanlar\n 2 : Sehirler \n 3 : Meyveler \n 4 : Sebzeler")
 hngmn_rsmler = pictures.Hangman_resimler
 def kategori(indx):
     if   indx == "1":
         kelime_listesi = words.Hayvanlar
     elif indx == "2":
-        kelime_listesi = words.Şehirler
+        kelime_listesi = words.Sehirler
     elif indx == "3":
         kelime_listesi = words.Meyveler
     else: 
         kelime_listesi = words.Sebzeler
     return kelime_listesi
-secilen_kelime = random.choice(kategori(input("Lütfen Kategori Seçimi Yapınız : "))).lower() # Kelime seçip tüm harfleri kücültüyor.
+tercih = input("Lütfen Kategori Seçimi Yapınız : ")
+print(tercih)
+while tercih not in ["1","2","3","4"]:  
+    print("Lütfen Sadece 1,2,3 veya 4 rakamını tuşlayın ! ")
+    tercih = input("Lütfen Kategori Seçimi Yapınız : ")
+secilen_kelime = random.choice(kategori(tercih)).lower() # Kelime seçip tüm harfleri kücültüyor.      
 hak = 6
 görüntü = "_" * len(secilen_kelime) # Kelimenin uzunluguna göre _ koyuyor.
 for x in range(0,len(secilen_kelime)-1):
