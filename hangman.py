@@ -1,47 +1,13 @@
 import random
-Hangman_resimler = ['''
-    +---+
-        |
-   DEAD |
-        |
-       ===''', '''
-    +---+
-    O   |
-        |
-        |
-       ===''', '''
-    +---+
-    O   |
-    |   |
-        |
-       ===''', '''
-    +---+
-    O   |
-   /|   |
-        |
-       ===''', '''
-    +---+
-    O   |
-   /|\  |
-        |
-       ===''', '''
-    +---+
-    O   |
-   /|\  |
-   /    |
-       ===''', '''
-    +---+
-    O   |
-   /|\  |
-   / \  |
-       ===''']
+import pictures
+hngmn_rsmler = pictures.Hangman_resimler
 kelime_listesi = "Adapte,Adalet,Alerji,Aralık".split(",") # Kelime listesi.
 secilen_kelime = random.choice(kelime_listesi).lower() # Kelime seçip tüm harfleri kücültüyor.
 hak = 6
 görüntü = "_" * len(secilen_kelime) # Kelimenin uzunluguna göre _ koyuyor.
 for x in range(0,len(secilen_kelime)-1):
     while hak > 0:
-        print(Hangman_resimler[hak])
+        print(hngmn_rsmler[hak])
         tahmin = input("Bir harf tahmin et : ").lower() # Harf alıp kücültüyor.
         while len(tahmin) >= 2 or tahmin.isalpha() == False:
             print("Lütfen sadece tek bir harf girisi yapınız !")
@@ -64,5 +30,5 @@ for x in range(0,len(secilen_kelime)-1):
         else: 
             hak -= 1
 if hak == 0:
-    print(Hangman_resimler[0])
+    print(hngmn_rsmler[0])
     print("Malesef Bilemedin :( " + "\n" + "Doğru Cevap -->  " + secilen_kelime.upper())  # Haklar tükenirse doğru cevabı söyleyip bitiriyor.
